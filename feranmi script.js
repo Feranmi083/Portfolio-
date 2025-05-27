@@ -101,4 +101,27 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
     });
+    const word = ["Game developer","JavaScript enthusiast","UI/UX Designer"];
+    let woedindex = 0;
+    let typewriter = document.querySelector('.typewriter');
+    function typewriter() {
+        let word = words[wordindex];
+        typewriter.textContent = '';
+        let i = 0
+        const typeInterval =
+        setInterval(() => {
+            if (i < word.length) {
+                typewriter.textContent+= word.charAt(1);
+                i++;
+            } else {
+                clearInterval(typeInterval);
+                setTimeout(() => {
+                    wordindex = (woedindex + 1) % word.length;typeword();
+                }, 2000);
+            }
+        }, 100)
+    }
+    if (typewriter){
+        typeword();
+    }
 });
